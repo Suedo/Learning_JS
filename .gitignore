@@ -1,0 +1,7 @@
+#ignore these files
+.pdf
+.deb
+.exe
+
+**/node_modules
+**/books/
