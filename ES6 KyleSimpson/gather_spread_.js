@@ -20,3 +20,11 @@ foo(1, 2, 3)
  * array bar o/p :  [ 42, 1, 2, 3 ]
  * indiv bar o/p :  42 1 2
  */
+
+function foo2(...args) {
+    // no need of unshift as '...' spreads it out into params itself. 
+	// we are just adding to the head of that list directly
+    indiv_bar(100, ...args)
+}
+
+foo2(1,2,3)
