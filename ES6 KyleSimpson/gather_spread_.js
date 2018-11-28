@@ -28,3 +28,23 @@ function foo2(...args) {
 }
 
 foo2(1,2,3)
+
+/**
+ * "..." Gather : works in assignment context, left of the the "=" assignment operator
+ * "..." Spread : works in value context, right of "=" assignment operator
+ * 
+ * when gathering, it will gather the elements into an array. So, if the elements in question is 
+ * itself an array, it will create an array of arrays
+ * 
+ * Example:
+ */
+
+
+function returnMix() {
+    return [1, 2, 3, [4, 5, 6]]
+}
+
+var a, b, c;
+
+[a, b, c, ...array] = returnMix(); // "array" will be an array, with a single array element of [4,5,6]
+console.log(array); // [ [ 4, 5, 6 ] ]
