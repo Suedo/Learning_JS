@@ -48,3 +48,34 @@ var a, b, c;
 
 [a, b, c, ...array] = returnMix(); // "array" will be an array, with a single array element of [4,5,6]
 console.log(array); // [ [ 4, 5, 6 ] ]
+
+/* ======= Additional Examples ======= */
+
+// gather 1st of the total arguments into a "def" field, and the rest into the "rest" array
+// if this is called without any args, "def" will get default value, and "rest" will be an empty array
+function gather_w_def(def = "no args passed", ...rest){ 
+    console.log("first value passed: ", def );
+    console.log("remaining values: ", rest);
+}
+
+var v1 = [1,2,3]
+var v2 = [4,5]
+var v3 = ["som", ...v1, ...v2, "jit"]  // merge new data with spread-out array elems 
+
+function spreadIt(def="nag"){
+    gather_w_def(def, ...v3 );
+}
+
+spreadIt();
+/*
+Prints:
+first value passed:  nag
+remaining values:  [ 'som', 1, 2, 3, 4, 5, 'jit' ]
+*/
+
+gather_w_def();
+/*
+Prints:
+first value passed:  no args passed
+remaining values:  []
+*/
